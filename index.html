@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цветогенератор</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Цветогенератор</title>    
     <style>
         * {
             box-sizing: border-box;
@@ -72,6 +71,7 @@
             <input type="range" id="blue" @input="blueUpdate" min="0" max="255" step="1" value="0">
         </div>
     </div>
+    <script src="js/vue.js"></script>
 </body>
 <script>
     document.querySelector('.circle').style.backgroundColor = 'rgb(0, 0, 0)'
@@ -100,29 +100,7 @@
             }
         }
     }).mount('.input_box')
-
-
-    // let redColor = 0
-    // let greenColor = 0
-    // let blueColor = 0
-
-    // red.addEventListener('input', function () {
-    //     let redColor = document.getElementById('red').value
-
-    // })
-
-    // green.addEventListener('input', function () {
-    //     let greenColor = document.getElementById('green').value
-
-    // })
-
-    // blue.addEventListener('input', function () {
-    //     let blueColor = document.getElementById('blue').value
-
-    // })
-
-    // document.querySelector('.circle').style.backgroundColor = `rgb(${redColor}, ${greenColor}, ${blueColor}`
-
 </script>
+
 
 </html>
