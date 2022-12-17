@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цветогенератор</title>    
+    <title>Цветогенератор</title>  
+    
     <style>
         * {
             box-sizing: border-box;
             font-family: 'Calibri', sans-serif;
+        }
+
+        body {
+            background-color: blueviolet;
         }
 
         .container {
@@ -19,8 +24,8 @@
             justify-content: space-evenly;
             overflow: hidden;
             margin: 0 auto;
-            background-image: url(/img/pattern-christmas-balls-2color.png);
-            
+            background-image: url(/img/blue-scratched-jeans.jpg);
+            max-width: 900px;
             animation: slide 90s linear infinite;
             padding: 30px;            
         }
@@ -71,36 +76,10 @@
             <input type="range" id="blue" @input="blueUpdate" min="0" max="255" step="1" value="0">
         </div>
     </div>
-    <script src="js/vue.js"></script>
+    
 </body>
-<script>
-    document.querySelector('.circle').style.backgroundColor = 'rgb(0, 0, 0)'
-    Vue.createApp({
-        data() {
-            return {
-                redColor: 0,
-                greenColor: 0,
-                blueColor: 0
-            }
-        },
-        methods: {
-            redUpdate() {
-                this.redColor = document.getElementById('red').value
-            },
-            greenUpdate() {
-                this.greenColor = document.getElementById('green').value
-            },
-            blueUpdate() {
-                this.blueColor = document.getElementById('blue').value
-            }
-        },
-        computed: {
-            colorUpdate() {
-                return document.querySelector('.circle').style.backgroundColor = `rgb(${this.redColor}, ${this.greenColor}, ${this.blueColor})`
-            }
-        }
-    }).mount('.input_box')
-</script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="js/main.js"></script>
 
 
 </html>
