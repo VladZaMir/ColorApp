@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветогенератор</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Calibri', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            overflow: hidden;
+            margin: 0 auto;
+            background-image: url(/img/pattern-christmas-balls-2color.png);
+            
+            animation: slide 90s linear infinite;
+            padding: 30px;            
+        }
+
+        .circle {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        input {
+            display: block;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 10px
+        }
+
+        #red,
+        #green,
+        #blue {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="circle_box">
+            <div class="circle"></div>
+        </div>
+        <div class="input_box">
+            <label for="red">Red {{ redColor }}</label>
+            <input type="range" id="red" @input="redUpdate" min="0" max="255" step="1" value="0">
+            <label for="green">Green {{ greenColor }}</label>
+            <input type="range" id="green" @input="greenUpdate" min="0" max="255" step="1" value="0">
+            <label for="blue">Blue {{ blueColor }}</label>
+            <input type="range" id="blue" @input="blueUpdate" min="0" max="255" step="1" value="0">
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector('.circle').style.backgroundColor = 'rgb(0, 0, 0)'
+    Vue.createApp({
+        data() {
+            return {
+                redColor: 0,
+                greenColor: 0,
+                blueColor: 0
+            }
+        },
+        methods: {
+            redUpdate() {
+                this.redColor = document.getElementById('red').value
+            },
+            greenUpdate() {
+                this.greenColor = document.getElementById('green').value
+            },
+            blueUpdate() {
+                this.blueColor = document.getElementById('blue').value
+            }
+        },
+        computed: {
+            colorUpdate() {
+                return document.querySelector('.circle').style.backgroundColor = `rgb(${this.redColor}, ${this.greenColor}, ${this.blueColor})`
+            }
+        }
+    }).mount('.input_box')
+
+
+    // let redColor = 0
+    // let greenColor = 0
+    // let blueColor = 0
+
+    // red.addEventListener('input', function () {
+    //     let redColor = document.getElementById('red').value
+
+    // })
+
+    // green.addEventListener('input', function () {
+    //     let greenColor = document.getElementById('green').value
+
+    // })
+
+    // blue.addEventListener('input', function () {
+    //     let blueColor = document.getElementById('blue').value
+
+    // })
+
+    // document.querySelector('.circle').style.backgroundColor = `rgb(${redColor}, ${greenColor}, ${blueColor}`
+
+</script>
+
+</html>
