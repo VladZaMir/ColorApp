@@ -111,6 +111,14 @@
             font-weight: bold;
         }
 
+        .rgb-text {
+            display: block;            
+            width: max-content;
+            margin: 0 auto;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
         label {
             display: block;
             font-weight: bold;
@@ -130,8 +138,10 @@
 <body>
     <div class="container">
         <div class="circle_box">
-            <div class="circle"></div>
+            <div class="circle">           
+            </div>            
         </div>
+        <div class="rgb-text">RGB({{ redColor }}, {{ greenColor }}, {{ blueColor }})</div>
         <div class="input_box">
             <label for="red"><i class="fa-sharp fa-solid fa-palette red"></i>Red {{ redColor }}</label>
             <input type="range" id="red" @input="redUpdate" min="0" max="255" step="1" value="0">
@@ -143,7 +153,7 @@
             <input type="range" id="blue" @input="blueUpdate" min="0" max="255" step="1" value="0">
         </div>
         <div>
-            <button @click="reset" class="reset_btn">Reset</button>
+            <button @click="reset" class="reset_btn">Reset</button>            
         </div>
     </div>
 
