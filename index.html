@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Цветогенератор</title>
+    <script src="https://kit.fontawesome.com/5c28b40e98.js" crossorigin="anonymous"></script>
 
     <style>
         * {
@@ -15,6 +16,18 @@
 
         body {
             background-color: blueviolet;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .blue {
+            color: blue;
         }
 
         .container {
@@ -94,6 +107,8 @@
             width: 100px;
             font-size: 20px;
             background-color: rgb(34, 180, 190);
+            border-radius: 15%;
+            font-weight: bold;
         }
 
         label {
@@ -118,11 +133,13 @@
             <div class="circle"></div>
         </div>
         <div class="input_box">
-            <label for="red">Red {{ redColor }}</label>
+            <label for="red"><i class="fa-sharp fa-solid fa-palette red"></i>Red {{ redColor }}</label>
             <input type="range" id="red" @input="redUpdate" min="0" max="255" step="1" value="0">
-            <label for="green">Green {{ greenColor }}</label>
+
+            <label for="green"><i class="fa-sharp fa-solid fa-palette green"></i>Green {{ greenColor }}</label>
             <input type="range" id="green" @input="greenUpdate" min="0" max="255" step="1" value="0">
-            <label for="blue">Blue {{ blueColor }}</label>
+
+            <label for="blue"><i class="fa-sharp fa-solid fa-palette blue"></i>Blue {{ blueColor }}</label>
             <input type="range" id="blue" @input="blueUpdate" min="0" max="255" step="1" value="0">
         </div>
         <div>
