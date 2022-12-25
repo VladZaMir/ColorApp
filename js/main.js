@@ -19,11 +19,16 @@ Vue.createApp({
         blueUpdate() {
             this.blueColor = document.getElementById('blue').value
             document.querySelector('.circle').style.backgroundColor = `rgb(${this.redColor}, ${this.greenColor}, ${this.blueColor})`
+        },
+        reset() {            
+            document.querySelector('.circle').style.backgroundColor = 'rgb(0, 0, 0)'
+            let inputs = document.querySelectorAll('input')
+            for (let i of inputs) {
+                i.value = 0;
+            }
+            this.redColor = 0,
+            this.greenColor = 0,
+            this.blueColor = 0
         }
-    },
-    computed: {
-        colorUpdate: function() {
-            return document.querySelector('.circle').style.backgroundColor = `rgb(${this.redColor}, ${this.greenColor}, ${this.blueColor})`
-        }
-    }
-}).mount('.input_box')
+    }    
+}).mount('.container')
